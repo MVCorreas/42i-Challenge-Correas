@@ -1,0 +1,16 @@
+{
+  "name": "42i-challenge-correas",
+  "version": "1.0.0",
+  "description": "CHALLENGE TEST 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha Tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0"
+  }
+}
