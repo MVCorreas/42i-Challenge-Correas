@@ -27,4 +27,5 @@ function twoNumberSum(numbers, targetSum) {
     return [];
 }
 
+//We export the function to be used in other parts of the code.
 module.exports = { twoNumberSum };
