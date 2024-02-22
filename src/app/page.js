@@ -8,7 +8,7 @@ export default function Home() {
   const [highlightedPayments, setHighlightedPayments] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-
+  
   const handleCalculate = () => {
     const numbers = companyPayments;
     const targetSum = parseInt(totalSum);
@@ -24,13 +24,37 @@ export default function Home() {
     const pair = twoNumberSum(numbers, targetSum);
   
     if (pair.length === 2) {
-      // Find indices of the pair in the companyPayments array
-      const indices = pair.map(item => numbers.reduce((acc, val, index) => (val === item ? [...acc, index] : acc), []));
+      // Count occurrences of each number
+      const occurrences = {};
+      numbers.forEach(num => {
+        occurrences[num] = occurrences[num] ? occurrences[num] + 1 : 1;
+      });
   
-      // Highlight corresponding input fields
-      const flattenedIndices = indices.flat();
-      setHighlightedPayments(flattenedIndices);
-      setSuccessMessage(`The pair of payments highlighted above successfully sum up to the target amount for investment.`);
+      // Initialize an array to keep track of numbers that have been highlighted
+      const highlightedNumbers = [];
+  
+      // Iterate through each number in the pair
+      for (const num of pair) {
+        // Find the index of the first occurrence of the number in the companyPayments array
+        const index = numbers.indexOf(num);
+  
+        // Highlight the number if it hasn't been highlighted before
+        if (!highlightedNumbers.includes(index)) {
+          highlightedNumbers.push(index);
+        }
+  
+        // If the number appears more than once and it's the second occurrence in the pair, highlight it again
+        if (occurrences[num] >= 2) {
+          const secondIndex = numbers.indexOf(num, index + 1);
+          if (!highlightedNumbers.includes(secondIndex)) {
+            highlightedNumbers.push(secondIndex);
+          }
+        }
+      }
+  
+      // Set the highlightedPayments state with the indices of the highlighted numbers
+      setHighlightedPayments(highlightedNumbers);
+      setSuccessMessage(`The pair of payments highlighted above successfully sum up to the target amount for investment. If two amounts are repeated, you may choose the one that fit best according to your needs.`);
       setErrorMessage('');
     } else {
       setHighlightedPayments([]);
@@ -39,8 +63,6 @@ export default function Home() {
     }
   };
   
-  
-
   // Update company payments array
   const handlePaymentChange = (index, value) => {
     const newPayments = [...companyPayments];
