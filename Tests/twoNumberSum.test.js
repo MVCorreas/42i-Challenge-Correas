@@ -1,4 +1,4 @@
-const { twoNumberSum } = require('../src/twoNumberSum');
+const { twoNumberSum } = require('../src/Components/twoNumberSum');
 const assert = require('assert');
 
 describe('twoNumberSum function', () => {
