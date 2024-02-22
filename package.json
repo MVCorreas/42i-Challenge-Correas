@@ -4,7 +4,8 @@
   "description": "CHALLENGE TEST 1",
   "main": "index.js",
   "scripts": {
-    "test": "mocha Tests"
+    "test": "mocha Tests",
+    "dev": "next dev"
   },
   "keywords": [],
   "author": "",
