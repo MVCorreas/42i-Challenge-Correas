@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: Arial, sans-serif;
@@ -106,8 +109,34 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-left: 500px;
+  margin-top: 20px;
 }
 
+.modal {
+  width: 600px; 
+  border-radius: 10px;
+  border: 2px solid #ccc; 
+}
+
+.modal-box {
+  padding: 20px;
+}
+
+.modal-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-action button {
+  padding: 8px 16px;
+  background: #163b8a72;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
 
 h2 {

@@ -1,6 +1,7 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { twoNumberSum } from '../Components/twoNumberSum';
+
 
 export default function Home() {
   const [companyPayments, setCompanyPayments] = useState(Array(5).fill(0));
@@ -8,7 +9,12 @@ export default function Home() {
   const [highlightedPayments, setHighlightedPayments] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    title: '',
+    message: ''
+  });
+
   const handleCalculate = () => {
     const numbers = companyPayments;
     const targetSum = parseInt(totalSum);
@@ -72,6 +78,28 @@ export default function Home() {
 
   // Calculate total account balance
   const totalBalance = companyPayments.reduce((acc, curr) => acc + curr, 0);
+
+// Function to open the modal
+const openModal = () => {
+  setModalVisible(true);
+};
+
+// Function to close the modal
+const closeModal = () => {
+  setModalVisible(false);
+};
+
+// Use useEffect to show the modal when there's an error or success message
+useEffect(() => {
+  if (errorMessage || successMessage) {
+    openModal();
+    setModalContent({
+      title: errorMessage ? 'Error' : 'Success',
+      message: errorMessage || successMessage
+    });
+  }
+}, [errorMessage, successMessage]);
+
 
   return (
     <div>
@@ -138,12 +166,23 @@ export default function Home() {
         required
       />
 
-      <div className="button-container">
-          <button onClick={handleCalculate} className="calculate-button">Calculate</button>
-      </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {successMessage && <p className="success-message">{successMessage}</p>}
-      </div>
+<button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
+
+<dialog id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">What to invest?</h3>
+    <p className="py-4">
+      {errorMessage && errorMessage}
+      {successMessage && successMessage}
+    </p>
+    <div className="modal-action">
+      <form method="dialog">
+        <button className="btn" onClick={closeModal}>Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+</div>
    
   );
 }
