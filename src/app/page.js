@@ -76,24 +76,44 @@ export default function Home() {
   return (
     <div>
       <h1>Investment Simulation</h1>
-      <label htmlFor="accountBalance">Total Account Balance:</label>
-      <input type="number" id="accountBalance" value={totalBalance} readOnly /><br /><br />
+      <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <h2 className="text-xl font-bold px-4 py-2 bg-gray-200">Total Account Balance:</h2>
+      <div className="px-4 py-2">
+        <span className="text-2xl font-bold">{totalBalance}</span>
+      </div>
+    </div>
 
-      <label htmlFor="companyPayments">Company Payments:</label><br />
-        {[...Array(companyPayments.length)].map((_, index) => (
-          <div className="company-container" key={index}>
-            <h3>{`Company ${String.fromCharCode(65 + index)}`}</h3>
-            <input
-              type="number"
-              placeholder="Payment"
-              min="0"
-              max="10"
-              value={companyPayments[index]}
-              onChange={(e) => handlePaymentChange(index, e.target.value)}
-              className={highlightedPayments.includes(index) ? 'highlight' : ''}
-            />
-          </div>
-        ))}
+
+      <h2 htmlFor="companyPayments">Company Payments:</h2>
+<table className="table-auto border-collapse w-full">
+  <thead>
+    <tr>
+      <th className="border bg-gray-200 px-4 py-2">Date</th>
+      <th className="border bg-gray-200 px-4 py-2">Company name</th>
+      <th className="border bg-gray-200 px-4 py-2">Amount Received</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[...Array(companyPayments.length)].map((_, index) => (
+      <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+        <td className="border px-4 py-2 text-center">02/22/2024</td>
+        <td className="border px-4 py-2 text-center">{`Company ${String.fromCharCode(65 + index)}`}</td>
+        <td className="border px-4 py-2 text-center">
+          <input
+            type="number"
+            placeholder="Payment"
+            min="0"
+            max="10"
+            value={companyPayments[index]}
+            onChange={(e) => handlePaymentChange(index, e.target.value)}
+            className={`w-full ${highlightedPayments.includes(index) ? 'highlight' : ''}`}
+          />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 
       <label htmlFor="investmentAmount">How much do you want to invest?</label>
       <input
