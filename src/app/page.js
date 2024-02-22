@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { twoNumberSum } from '../Components/twoNumberSum';
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -167,6 +168,10 @@ useEffect(() => {
       />
 
 <button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
+
+<div className="right-column">
+        <Image src="/investment.png" alt="Image" width={300} height={300} />
+</div>
 
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
