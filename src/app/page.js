@@ -76,12 +76,17 @@ export default function Home() {
   return (
     <div>
       <h1>Investment Simulation</h1>
+      <div className='balance-container'>
       <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <h2 className="text-xl font-bold px-4 py-2 bg-gray-200">Total Account Balance:</h2>
+      <h2 className="balance-title">Total Account Balance:</h2>
       <div className="px-4 py-2">
-        <span className="text-2xl font-bold">{totalBalance}</span>
+        <span className="text-2.5xl font-bold">$</span>
+        <span className="account-balance">{totalBalance}.00</span>
       </div>
     </div>
+      </div>
+     
+
 
 
       <h2 htmlFor="companyPayments">Company Payments:</h2>

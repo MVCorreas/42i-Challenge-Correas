@@ -76,13 +76,31 @@ body {
   margin: 0;
   padding: 0;
 }
-
-.container {
+.balance-container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  background: #163b8a72;
 }
+
+.balance-title {
+  justify-self: end; /* Aligns the title to the end of its grid cell (middle left) */
+  margin-right: 20px;
+}
+
+.account-balance {
+  justify-self: start; /* Aligns the account balance to the start of its grid cell (middle right) */
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
 
 h2 {
   color: #333;
@@ -127,4 +145,6 @@ p {
 .company-name {
   margin-right: 10px;
 }
+
+
 
