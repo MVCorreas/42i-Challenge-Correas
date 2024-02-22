@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 body {
   font-family: Arial, sans-serif;
@@ -174,4 +174,12 @@ p {
   margin-right: 10px;
 }
 
+.left-column {
+  max-width: 800px;
+  padding: 5px;
+}
+
+.right-column {
+  padding: 5px;
+}
 

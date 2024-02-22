@@ -118,76 +118,77 @@ useEffect(() => {
     </div>
       </div>
      
-
-
-
-      <div className="table-container">
-        <h2 className='table-title' htmlFor="companyPayments">Company Payments:</h2>
- 
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Company name</th>
-              <th>Amount Received</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(companyPayments.length)].map((_, index) => (
-              <tr key={index}>
-                <td>02/22/2024</td>
-                <td>{`Company ${String.fromCharCode(65 + index)}`}</td>
-                <td>
-                  <input
-                    type="number"
-                    placeholder="Payment"
-                    min="0"
-                    max="10"
-                    value={companyPayments[index]}
-                    onChange={(e) => handlePaymentChange(index, e.target.value)}
-                    className={highlightedPayments.includes(index) ? 'highlight' : ''}
-                  />
-                </td>
+      <div className="flex">
+      {/* Left Column */}
+      <div className="w-1/2 p-4">
+        <div className="table-container">
+          <h2 className="table-title" htmlFor="companyPayments">Company Payments:</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Company name</th>
+                <th>Amount Received</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {[...Array(companyPayments.length)].map((_, index) => (
+                <tr key={index}>
+                  <td>02/22/2024</td>
+                  <td>{`Company ${String.fromCharCode(65 + index)}`}</td>
+                  <td>
+                    <input
+                      type="number"
+                      placeholder="Payment"
+                      min="0"
+                      max="10"
+                      value={companyPayments[index]}
+                      onChange={(e) => handlePaymentChange(index, e.target.value)}
+                      className={highlightedPayments.includes(index) ? 'highlight' : ''}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="question-container">
+          <label htmlFor="investmentAmount">How much do you want to invest?</label>
+        </div>
+        <input
+          type="number"
+          id="investmentAmount"
+          min="1"
+          max="20"
+          value={totalSum}
+          onChange={(e) => setTotalSum(e.target.value)}
+          required
+        />
+        <button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
       </div>
-      <div className="question-container">
-        <label htmlFor="investmentAmount">How much do you want to invest?</label>
+
+      {/* Right Column */}
+      <div className="w-1/2 p-4">
+        <div className="right-column">
+          <Image src="/investment-balance.png" alt="Image" width={600} height={600} />
+        </div>
       </div>
-
-      <input
-        type="number"
-        id="investmentAmount"
-        min="1"
-        max="20"
-        value={totalSum}
-        onChange={(e) => setTotalSum(e.target.value)}
-        required
-      />
-
-<button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
-
-<div className="right-column">
-        <Image src="/investment.png" alt="Image" width={300} height={300} />
-</div>
-
-<dialog id="my_modal_1" className="modal">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">What to invest?</h3>
-    <p className="py-4">
-      {errorMessage && errorMessage}
-      {successMessage && successMessage}
-    </p>
-    <div className="modal-action">
-      <form method="dialog">
-        <button className="btn" onClick={closeModal}>Close</button>
-      </form>
     </div>
+
+    <dialog id="my_modal_1" className="modal">
+      <div className="modal-box">
+        <h3 className="font-bold text-lg">What to invest?</h3>
+        <p className="py-4">
+          {errorMessage && errorMessage}
+          {successMessage && successMessage}
+        </p>
+        <div className="modal-action">
+          <form method="dialog">
+            <button className="btn" onClick={closeModal}>Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </div>
-</dialog>
-</div>
-   
-  );
+);
 }
