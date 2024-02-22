@@ -76,6 +76,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.investment-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #172554e0;
+}
+
 .balance-container {
   max-width: 800px;
   margin: 20px auto;
@@ -90,16 +99,87 @@ body {
 }
 
 .balance-title {
-  justify-self: end; /* Aligns the title to the end of its grid cell (middle left) */
+  justify-self: end; 
   margin-right: 20px;
+  color: #fff;
 }
 
 .account-balance {
-  justify-self: start; /* Aligns the account balance to the start of its grid cell (middle right) */
+  justify-self: start;
   font-size: 3.5rem;
   font-weight: bold;
   margin-left: 50px;
 }
+
+.table-title {
+  justify-self: end; 
+  margin-right: 20px;
+  color: #172554c1;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.table-container th {
+  background-color: #e2e8f0;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+.question-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:larger;
+  font-weight: bold;
+  color: #172554e0;
+  flex-direction: column;
+
+}
+
+#investmentAmount {
+  display:block;
+  width: 10%;
+  font-size: 1.5rem; 
+  margin-top: 10px; 
+  margin-left: 45%;
+  
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+}
+
+.calculate-button {
+  width: 45%; 
+  padding: 10px; 
+  font-size: 1.5rem; 
+  border-radius: 10px;
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 
 
 h2 {
@@ -113,22 +193,13 @@ input[type="number"] {
   margin-right: 10px;
 }
 
-/* Button styles */
-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
 
-/* Result display styles */
 p {
   margin-top: 10px;
 }
 
 .highlight {
-  background-color: yellow;
+  background-color: #fbbe24ae;
 }
 .error-message {
   color: red;

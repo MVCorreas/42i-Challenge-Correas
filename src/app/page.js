@@ -75,7 +75,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Investment Simulation</h1>
+     <div className="investment-title">
+        <h1>Investment Simulation</h1>
+      </div>
+
       <div className='balance-container'>
       <div className="border border-gray-200 rounded-lg overflow-hidden">
       <h2 className="balance-title">Total Account Balance:</h2>
@@ -89,38 +92,42 @@ export default function Home() {
 
 
 
-      <h2 htmlFor="companyPayments">Company Payments:</h2>
-<table className="table-auto border-collapse w-full">
-  <thead>
-    <tr>
-      <th className="border bg-gray-200 px-4 py-2">Date</th>
-      <th className="border bg-gray-200 px-4 py-2">Company name</th>
-      <th className="border bg-gray-200 px-4 py-2">Amount Received</th>
-    </tr>
-  </thead>
-  <tbody>
-    {[...Array(companyPayments.length)].map((_, index) => (
-      <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-        <td className="border px-4 py-2 text-center">02/22/2024</td>
-        <td className="border px-4 py-2 text-center">{`Company ${String.fromCharCode(65 + index)}`}</td>
-        <td className="border px-4 py-2 text-center">
-          <input
-            type="number"
-            placeholder="Payment"
-            min="0"
-            max="10"
-            value={companyPayments[index]}
-            onChange={(e) => handlePaymentChange(index, e.target.value)}
-            className={`w-full ${highlightedPayments.includes(index) ? 'highlight' : ''}`}
-          />
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+      <div className="table-container">
+        <h2 className='table-title' htmlFor="companyPayments">Company Payments:</h2>
+ 
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Company name</th>
+              <th>Amount Received</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(companyPayments.length)].map((_, index) => (
+              <tr key={index}>
+                <td>02/22/2024</td>
+                <td>{`Company ${String.fromCharCode(65 + index)}`}</td>
+                <td>
+                  <input
+                    type="number"
+                    placeholder="Payment"
+                    min="0"
+                    max="10"
+                    value={companyPayments[index]}
+                    onChange={(e) => handlePaymentChange(index, e.target.value)}
+                    className={highlightedPayments.includes(index) ? 'highlight' : ''}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="question-container">
+        <label htmlFor="investmentAmount">How much do you want to invest?</label>
+      </div>
 
-
-      <label htmlFor="investmentAmount">How much do you want to invest?</label>
       <input
         type="number"
         id="investmentAmount"
@@ -129,24 +136,14 @@ export default function Home() {
         value={totalSum}
         onChange={(e) => setTotalSum(e.target.value)}
         required
-      /><br /><br />
+      />
 
-      <button onClick={handleCalculate}>Calculate</button>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {successMessage && <p className="success-message">{successMessage}</p>}
-
-      <style jsx>{`
-        .highlight {
-          background-color: yellow;
-        }
-        .error-message {
-          color: red;
-        }
-        .success-message {
-          color: green;
-        }
-      `}</style>
-    </div>
+      <div className="button-container">
+          <button onClick={handleCalculate} className="calculate-button">Calculate</button>
+      </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
+      </div>
+   
   );
 }
