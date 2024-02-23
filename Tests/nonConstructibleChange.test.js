@@ -1,4 +1,4 @@
-const { nonConstructibleChange } = require('../src/Components/nonConstructibleChange');
+const { nonConstructibleChange } = require('../src/Functions/nonConstructibleChange');
 const assert = require('assert');
 
 describe('nonConstructibleChange function', () => {

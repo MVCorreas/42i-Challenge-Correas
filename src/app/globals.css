@@ -14,6 +14,7 @@ body {
   align-items: center;
   width: 100%;
   color: #172554e0;
+  margin-top: 20px;
 }
 
 .balance-container {
@@ -68,7 +69,7 @@ body {
 }
 
 .table-container th {
-  background-color: #e2e8f0;
+  background-color: #0d94896a;
 }
 
 .table-container tbody tr:nth-child(even) {
@@ -179,6 +180,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
   
 }
 
