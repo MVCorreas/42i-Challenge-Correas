@@ -102,78 +102,73 @@ useEffect(() => {
 }, [errorMessage, successMessage]);
 
 
-  return (
-    <div>
-     <div className="investment-title">
-        <h1>Investment Simulation</h1>
-      </div>
+return (
+  <div>
+    <div className="investment-title">
+      <h1>Investment Simulation</h1>
+    </div>
 
-      <div className='balance-container'>
+    <div className="balance-container">
       <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <h2 className="balance-title">Total Account Balance:</h2>
-      <div className="px-4 py-2">
-        <span className="text-2.5xl font-bold">$</span>
-        <span className="account-balance">{totalBalance}.00</span>
+        <h2 className="balance-title">Total Account Balance:</h2>
+        <div className="px-4 py-2">
+          <span className="text-2.5xl font-bold">$</span>
+          <span className="account-balance">{totalBalance}.00</span>
+        </div>
       </div>
     </div>
-      </div>
-     
-      <div className="flex">
-      {/* Left Column */}
-      <div className="w-1/2 p-4">
-        <div className="table-container">
-          <h2 className="table-title" htmlFor="companyPayments">Company Payments:</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Company name</th>
-                <th>Amount Received</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...Array(companyPayments.length)].map((_, index) => (
-                <tr key={index}>
-                  <td>02/22/2024</td>
-                  <td>{`Company ${String.fromCharCode(65 + index)}`}</td>
-                  <td>
-                    <input
-                      type="number"
-                      placeholder="Payment"
-                      min="0"
-                      max="10"
-                      value={companyPayments[index]}
-                      onChange={(e) => handlePaymentChange(index, e.target.value)}
-                      className={highlightedPayments.includes(index) ? 'highlight' : ''}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="question-container">
-          <label htmlFor="investmentAmount">How much do you want to invest?</label>
-        </div>
-        <input
-          type="number"
-          id="investmentAmount"
-          min="1"
-          max="20"
-          value={totalSum}
-          onChange={(e) => setTotalSum(e.target.value)}
-          required
-        />
-        <button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
-      </div>
 
-      {/* Right Column */}
-      <div className="w-1/2 p-4">
-        <div className="right-column">
-          <Image src="/investment-balance.png" alt="Image" width={600} height={600} />
-        </div>
+    <div className="left-column">
+      <div className="table-container">
+        <h2 className="table-title" htmlFor="companyPayments">Company Payments:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Company name</th>
+              <th>Amount Received</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(companyPayments.length)].map((_, index) => (
+              <tr key={index}>
+                <td>02/22/2024</td>
+                <td>{`Company ${String.fromCharCode(65 + index)}`}</td>
+                <td>
+                  <input
+                    type="number"
+                    placeholder="Payment"
+                    min="0"
+                    max="10"
+                    value={companyPayments[index]}
+                    onChange={(e) => handlePaymentChange(index, e.target.value)}
+                    className={highlightedPayments.includes(index) ? 'highlight' : ''}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </div>
+      
+      <div className="image-container">
+        <Image src="/investment-balance.png" alt="Image" width={600} height={600} />
+      </div>
+   </div>
+      <div className="question-container">
+        <label htmlFor="investmentAmount">How much do you want to invest?</label>
+     
+      <input
+        type="number"
+        id="investmentAmount"
+        min="1"
+        max="20"
+        value={totalSum}
+        onChange={(e) => setTotalSum(e.target.value)}
+        required
+      />
+      <button className="calculate-button" onClick={() => { handleCalculate(); document.getElementById('my_modal_1').showModal() }}>Calculate</button>
+      </div>
 
     <dialog id="my_modal_1" className="modal">
       <div className="modal-box">

@@ -121,8 +121,10 @@ body {
 }
 
 .table-container {
-  max-width: 800px;
-  margin: 20px auto;
+  width: 800px;
+  margin: 20px;
+  padding: 20px;
+  overflow-x: auto;
 }
 
 .table-container table {
@@ -133,7 +135,7 @@ body {
 .table-container th,
 .table-container td {
   border: 1px solid #ccc;
-  padding: 8px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -153,15 +155,19 @@ body {
   font-weight: bold;
   color: #172554e0;
   flex-direction: column;
+  margin-left: 2px;
+  justify-self: end; 
+  margin-right: 20px;
+  color: #172554c1;
+  font-size: 1.5rem;
 
 }
 
 #investmentAmount {
-  display:block;
+  display: block;
   width: 10%;
   font-size: 1.5rem; 
   margin-top: 10px; 
-  margin-left: 45%;
   
 }
 
@@ -181,7 +187,7 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
-  margin-left: 500px;
+  margin-left: 50px;
   margin-top: 20px;
 }
 
@@ -215,7 +221,6 @@ h2 {
   color: #333;
 }
 
-/* Input field styles */
 input[type="number"] {
   width: 150px;
   padding: 5px;
@@ -230,12 +235,6 @@ p {
 .highlight {
   background-color: #fbbe24ae;
 }
-.error-message {
-  color: red;
-}
-.success-message {
-  color: green;
-}
 
 .company-container {
   display: flex;
@@ -247,12 +246,19 @@ p {
 }
 
 .left-column {
-  max-width: 800px;
-  padding: 5px;
+  max-width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
 }
 
-.right-column {
-  padding: 5px;
+.image-container {
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  width: 800px;
+  
 }
-
 
