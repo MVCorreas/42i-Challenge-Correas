@@ -2,3 +2,7 @@
 
 # dependencies
 /node_modules
+
+# Ignore webpack-generated files
+dist/
+build/
