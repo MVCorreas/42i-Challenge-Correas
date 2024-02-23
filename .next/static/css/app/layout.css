@@ -112,20 +112,22 @@ body {
   justify-self: start;
   font-size: 3.5rem;
   font-weight: bold;
-  margin-left: 50px;
+  margin-left: 90px;
 }
 
 .table-title {
   justify-self: end;
   margin-right: 20px;
   color: #172554c1;
+  margin-bottom: 20px;
 }
 
 .table-container {
-  width: 800px; /* Adjust as needed */
-  margin: 20px auto; /* Center the container */
+  width: 100%;
+  max-width: 600px; 
+  margin: 20px auto;
   padding: 20px;
-  overflow-x: auto;
+  
 }
 
 .table-container table {
@@ -136,7 +138,7 @@ body {
 .table-container th,
 .table-container td {
   border: 1px solid #ccc;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px; 
   text-align: center;
 }
 
@@ -194,7 +196,12 @@ body {
   width: 600px;
   border-radius: 10px;
   border: 2px solid #ccc;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 
 .modal-box {
   padding: 20px;
@@ -230,7 +237,7 @@ p {
 }
 
 .highlight {
-  background-color: #fbbe24ae;
+  background-color: #fbbe2460;
 }
 
 .company-container {

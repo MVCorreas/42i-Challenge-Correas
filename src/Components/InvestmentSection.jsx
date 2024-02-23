@@ -120,7 +120,7 @@ return (
 
     <div className="left-column">
       <div className="table-container">
-        <h2 className="table-title" htmlFor="companyPayments">Company Payments:</h2>
+        <h2 className="table-title" htmlFor="companyPayments">Payments Received</h2>
         <table>
           <thead>
             <tr>
@@ -152,7 +152,7 @@ return (
       </div>
       
       <div className="image-container">
-        <Image src="/investment-balance.png" alt="Image" width={600} height={600} />
+        <Image src="/investment-balance.png" alt="Image" width={600} height={500} />
       </div>
    </div>
       <div className="question-container">

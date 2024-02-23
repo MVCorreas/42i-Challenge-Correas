@@ -94,7 +94,7 @@ body {
   display: flex;
   flex-direction: column;
   width: var(--size-btn-collapse);
-  height: calc(50vh - 65px);
+  height: calc(50vh - 10px);
   background-color: var(--color-red);
   padding: 2rem;
   font-size: large;
