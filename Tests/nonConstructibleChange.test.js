@@ -1,9 +1,11 @@
-const { nonConstructibleChange } = require('../src/Functions/nonConstructibleChange');
-const assert = require('assert');
+//Mocha testing framework and node.js assert module.
 
-describe('nonConstructibleChange function', () => {
+const { nonConstructibleChange } = require('../src/Functions/nonConstructibleChange');
+const assert = require('assert'); //We import the built-in assert module from Node.js, which provides functions for writing tests.
+
+describe('nonConstructibleChange function', () => { //We define a test using Mocha. The first argument is a description of the suite, the second argument is a callback with it.
   it('should be a function', () => {
-    assert.strictEqual(typeof nonConstructibleChange, 'function');
+    assert.strictEqual(typeof nonConstructibleChange, 'function'); //strictEqual = both values (the actual result of calling nonConstructibleChnage and the expected value) have same value and type
   });
 
   it('should return the correct result for various inputs', () => {
@@ -13,7 +15,7 @@ describe('nonConstructibleChange function', () => {
   });
 
   it('should throw an error if the input is not an array', () => {
-    assert.throws(() => nonConstructibleChange("string"), TypeError);
+    assert.throws(() => nonConstructibleChange("string"), TypeError); //We can add a message; e.g. TypeError, 'Input should be an array'
     assert.throws(() => nonConstructibleChange(123), TypeError);
     assert.throws(() => nonConstructibleChange(null), TypeError);
     assert.throws(() => nonConstructibleChange(undefined), TypeError);
