@@ -18,7 +18,7 @@ function nonConstructibleChange(coins) {
         }
     }
 
-    //We employ the sort() method to organize the coins in ascending order
+    //We employ the sort() method to organize the coins in ascending order. The default order is ascending. Sorting helps efficiently go through the array and find the min possible.
     coins.sort((a, b) => a - b); 
 
     //We initialize a minPossible variable in 1, representing the minimum amount of change that cannot be created.
@@ -27,12 +27,12 @@ function nonConstructibleChange(coins) {
      //We iterate though each coin in the sorted array.
     for (let i = 0; i < coins.length; i++) {
 
-        //If the value of the current coin is greater than the value of the minPossible variable, we return the minPossible variable, since no further value may be created.
+        //If the value of the current coin is greater than the value of the minPossible variable, we return the minPossible variable, since it is the minimum value that cannot be created.
         if (coins[i] > minPossible) {
             return minPossible; 
         }
 
-        //We add the value of the current coin to the minPossible variable, updating the minimum possible change.
+        //If the value of the current coin is NOT greater than minPossible, it means that the current coin can create all amounts of change up to minPossible (inclusive). We add the value of the current coin to the minPossible variable, updating the minimum possible value.
         minPossible += coins[i]; 
     }
     
