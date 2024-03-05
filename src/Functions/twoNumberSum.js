@@ -4,9 +4,19 @@ function twoNumberSum(numbers, targetSum) {
     if (!Array.isArray(numbers)) {
         throw new TypeError('Input must be an array');
     }
+
+    //!Added this validation
+    //We iterate though each number in the array.
+    //For each value, we check if the current index is a number
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i];
+        if (!Number.isInteger(number)) { //Static method that checks whether the passed value is a no
+            throw new TypeError('All elements in the array must be integers'); //TypeError: used when the variable type is not the expected one.
+        }
+    }
     
     //If the input is valid, we initialize an empty object to store the numbers from the array 'numbers'
-    //We choose an object vs an Array for the objetcs have constant-time complecity, whereas the arrays have linear-time complexity, i.e. accessing an index of an array implies iterating  vs hash tables to store object properties 
+    //We choose an object vs an Array for the objetcs have constant-time complexity, whereas the arrays have linear-time complexity, i.e. accessing an index of an array implies iterating  vs hash tables to store object properties 
     const numMap = {}; 
     
     //We iterate though each number in the array, and calculates the complement, i.e. the difference between the targetSum and the current number.
@@ -20,7 +30,7 @@ function twoNumberSum(numbers, targetSum) {
             return [complement, numbers[i]];
         }
 
-        //if we cannot find a pair, we add the index of the current number to the numMap object. If we iterate through the first number in the array, we wont fint a pair or complement, so we move to the second number in the array, and store this first number in the numMap object
+        //if we cannot find a pair, we add the index of the current number to the numMap object. If we iterate through the first number in the array, we wont find a pair or complement, so we move to the second number in the array, and store this first number in the numMap object
         numMap[numbers[i]] = i;
     }
     

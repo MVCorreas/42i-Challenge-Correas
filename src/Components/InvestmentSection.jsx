@@ -18,7 +18,7 @@ export default function InvestmentSection() {
 
   const handleCalculate = () => {
     const numbers = companyPayments;
-    const targetSum = parseInt(totalSum);
+    const targetSum = parseInt(totalSum); //In JS input values are commonly read as strings
   
     // Validate inputs
     if (isNaN(targetSum) || targetSum < 1 || targetSum > 20 || numbers.some(num => num < 0 || num > 10)) {
@@ -31,21 +31,21 @@ export default function InvestmentSection() {
     const pair = twoNumberSum(numbers, targetSum);
   
     if (pair.length === 2) {
-      // Count occurrences of each number
-      const occurrences = {};
+      // Count occurrences of each number. If the number exists in the object we count +1 each key, otherwise, we set num in 1
+      const occurrences = {};//We use an object for efficient counting, using the number itself as a key
       numbers.forEach(num => {
         occurrences[num] = occurrences[num] ? occurrences[num] + 1 : 1;
       });
   
-      // Initialize an array to keep track of numbers that have been highlighted
+      // Initialize an array to keep track of numbers that will be highlighted in UI
       const highlightedNumbers = [];
   
       // Iterate through each number in the pair
       for (const num of pair) {
         // Find the index of the first occurrence of the number in the companyPayments array
-        const index = numbers.indexOf(num);
+        const index = numbers.indexOf(num); //For each number, we find its index in the array numbers
   
-        // Highlight the number if it hasn't been highlighted before
+        // We check if the number has been highligted, otherwise, we add the index to the array higlightedNumbers
         if (!highlightedNumbers.includes(index)) {
           highlightedNumbers.push(index);
         }
@@ -72,9 +72,9 @@ export default function InvestmentSection() {
   
   // Update company payments array
   const handlePaymentChange = (index, value) => {
-    const newPayments = [...companyPayments];
-    newPayments[index] = parseInt(value);
-    setCompanyPayments(newPayments);
+    const newPayments = [...companyPayments]; //Spread operator to create a new copy and leave the original unchanged
+    newPayments[index] = parseInt(value); //We add the new value enetered as input by the user
+    setCompanyPayments(newPayments);//We update the companyPayments array with the values of the new array
   };
 
   // Calculate total account balance

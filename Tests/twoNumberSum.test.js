@@ -24,7 +24,13 @@ describe('twoNumberSum function', () => {
     assert.deepStrictEqual(result, [2, 4]);
   });
 
-  it('should not accept negative numbers', () => {
-    assert.deepStrictEqual(twoNumberSum([-2, 4, 8, 10], 6), []);
+  // it('should not accept negative numbers', () => { //Where did I take this from?!
+  //   assert.deepStrictEqual(twoNumberSum([-2, 4, 8, 10], 6), []);
+  // });
+
+  it('should throw an error if the array contains non-integer values', () => {//!Added this it
+    assert.throws(() => twoNumberSum([1.5, 2, 5]), TypeError);
+    assert.throws(() => twoNumberSum([1, "2", 3]), TypeError);
+    assert.throws(() => twoNumberSum([5, 7, true, 1, 2, 3, 22]), TypeError);
   });
 });

@@ -3,7 +3,7 @@
 const { nonConstructibleChange } = require('../src/Functions/nonConstructibleChange');
 const assert = require('assert'); //We import the built-in assert module from Node.js, which provides functions for writing tests.
 
-describe('nonConstructibleChange function', () => { //We define a test using Mocha. The first argument is a description of the suite, the second argument is a callback with it.
+describe('nonConstructibleChange function', () => { //We define a test using Mocha. The first parameter is a description of the suite, the second parameter is a callback with individual tests (it).
   it('should be a function', () => {
     assert.strictEqual(typeof nonConstructibleChange, 'function'); //strictEqual = both values (the actual result of calling nonConstructibleChnage and the expected value) have same value and type
   });

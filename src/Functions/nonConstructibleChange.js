@@ -10,7 +10,7 @@ function nonConstructibleChange(coins) {
     //if the number is positive.
     for (let i = 0; i < coins.length; i++) {
         const coin = coins[i];
-        if (!Number.isInteger(coin)) {
+        if (!Number.isInteger(coin)) { //Static method that checks whether the passed value is a no
             throw new TypeError('All elements in the array must be integers'); //TypeError: used when the variable type is not the expected one.
         }
         if (coin <= 0) {
